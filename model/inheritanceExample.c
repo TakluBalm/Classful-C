@@ -4,32 +4,24 @@
 
 /**
  * int main(){
- *   local Car stackCar = new Car("Skoda", 100);
- *   ref Car heapCar = new Car("Mercedez", 500);
+ *   Car localCar = new Car("Skoda", 100);
+ *   ref Car refCar = new Car("Mercedez", 500);
  *   
- *   ref Vehicle vehicle = new Car("Test", 300)
+ *   localCar.printModel(); // Skoda
+ *   localCar.printPrice(); // 100
  * 
- *   vehicle.printPrice(); // 300
- *   
- *   stackCar.printModel(); // Skoda
- *   stackCar.printPrice(); // 100
- * 
- *   heapCar.printModel(); // Mercedez
- *   heapCar.printPrice(); // 500
+ *   refCar.printModel(); // Mercedez
+ *   refCar.printPrice(); // 500
  * }
 */
 int main(){
-	struct Car stackCar;
-	__constructor_Car(&stackCar, "Skoda", 100);
-	struct Car* heapCar = __constructor_Car(NULL, "Mercedez", 500);
+	struct Car localCar;
+	__constructor_Car(&localCar, "Skoda", 100);
+	struct Car* refCar = __constructor_Car(NULL, "Mercedez", 500);
 
-	struct Vehicle* vehicle = (struct Vehicle*) __constructor_Car(NULL, "Test", 300);
-
-	vehicle->printPrice(vehicle);
-
-	stackCar.printModel(&stackCar);
-	stackCar.__super__Vehicle.printPrice( (struct Vehicle*) &stackCar);
+	localCar.printModel(&localCar);
+	localCar.__super__Vehicle.printPrice( (struct Vehicle*) &localCar);
 	
-	heapCar->printModel(heapCar);
-	heapCar->__super__Vehicle.printPrice( (struct Vehicle*) heapCar);
+	refCar->printModel(refCar);
+	refCar->__super__Vehicle.printPrice( (struct Vehicle*) refCar);
 }

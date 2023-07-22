@@ -3,18 +3,24 @@
 
 /**
  * int main(){
- *   local Vehicle stackVehicle = new Vehicle(1000);
- *   ref Vehicle heapVehicle = new Vehicle(2000);
+ *   Vehicle implicitStackVehicle = new Vehicle(1); // local by default
+ *   local Vehicle explicitStackVehicle = new Vehicle(2);
+ *   ref heapVehicle = new Vehicle(3);
  *   
- *   stackVehicle.printPrice()
- *   heapVehicle.printPrice()
+ *   implicitStackVehicle.printPrice();
+ *   explicitStackVehicle.printPrice();
+ *   heapVehicle.printPrice();
  * }
 */
 int main(){
-	struct Vehicle stackVehicle;
-	__constructor__Vehicle(&stackVehicle, 1000);
-	struct Vehicle* heapVehicle = __constructor__Vehicle(NULL, 2000);
+	struct Vehicle implicitStackVehicle;
+	__constructor__Vehicle(&implicitStackVehicle, 1);
+	struct Vehicle explicitStackVehicle;
+	__constructor__Vehicle(&explicitStackVehicle, 2);
+	
+	struct Vehicle* heapVehicle = __constructor__Vehicle(NULL, 3);
 
-	stackVehicle.printPrice(&stackVehicle);
+	implicitStackVehicle.printPrice(&implicitStackVehicle);
+	explicitStackVehicle.printPrice(&explicitStackVehicle);
 	heapVehicle->printPrice(heapVehicle);
 }

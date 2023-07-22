@@ -14,11 +14,11 @@ void Vehicle_printPrice(struct Vehicle* this){
 	printf("%ld\n", this->price);
 }
 
-struct Vehicle* __constructor__Vehicle(struct Vehicle* vehicle, long price){
-	if(vehicle == NULL){
-		vehicle = malloc(sizeof(struct Vehicle));
+struct Vehicle* __constructor__Vehicle(struct Vehicle* this, long price){
+	if(this == NULL){
+		this = malloc(sizeof(struct Vehicle));
 	}
-	vehicle->price = price;
-	vehicle->printPrice = Vehicle_printPrice;
-	return vehicle;
+	this->price = price;
+	this->printPrice = Vehicle_printPrice;
+	return this;
 }

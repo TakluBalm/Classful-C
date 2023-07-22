@@ -7,16 +7,23 @@ A new language that transpiles to C and has OOP features at its disposal
 - Class keyword
 - No structs
 - Declaration and Definition together
-- Everything is object
+- Everything is object.
+- Every class definition inherits from a Object class (provided by the language)
 - Standard C library can be accessed
-- Two types of variables for local and heap access:
-	- `local` keyword for stack allocation
-	```Java
-	//	Vehicle object on stack
-	local Vehicle = new Vehicle(100);
-	```
-	- `ref` keyword for heap allocation
-	```Java
-	//	Vehicle object on heap
-	ref Vehicle = new Vehicle(1000);
-	```
+- Objects can be of 2 types:
+	1. Local: Allocated on the stack and thus faster allocation
+		- Prefix initialization with the keyword `local`
+		- It is the `default` type.
+		```java
+		//	Both are local variables
+		local Vehicle vehicle1 = new Vehicle(10);
+		Vehicle vehicle2 = new Vehicle(20)
+		```
+	2. Referencing: Allocated on heap and thus slower allocation
+		- Prefix initialization with the keyword `ref`
+		```java
+		ref Vehicle vehicle = new Vehicle(10);
+		```
+- Both types of objects can be converted into one another
+- Local variable can be assigned a local/ref variable of same time only
+- Ref variable can be assigned a local/ref variable of same or inherited type only
