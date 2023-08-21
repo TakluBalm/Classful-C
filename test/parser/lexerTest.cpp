@@ -39,41 +39,14 @@ TEST(lexer, brackets_test){
 }
 
 TEST(lexer, operators_test){
-	setup("+ - < > & | * / = += -= <= >= &= |= *= /= == ++ -- << >> && || .");
+	setup("+ - < > & | * / = ! += -= <= >= &= |= *= /= == != ++ -- << >> && || .");
 
-	enum token_type types[] = {
-		ADD,
-		SUB,
-		LT,
-		GT,
-		AND,
-		OR,
-		MUL,
-		DIV,
-		EQ,
-		ADDEQ,
-		SUBEQ,
-		LTE,
-		GTE,
-		ANDEQ,
-		OREQ,
-		MULEQ,
-		DIVEQ,
-		DEQ,
-		INCR,
-		DECR,
-		LSHIFT,
-		RSHIFT,
-		L_AND,
-		L_OR,
-		DOT
-	};
 	struct token t = Lexer_next();
 	int i = 0;
 	ASSERT_NE(t.type, END);
 	while(t.type != END){
 		ASSERT_EQ(t.category, OPERATOR);
-		ASSERT_EQ(t.type, types[i]);
+		ASSERT_EQ(t.type, ADD+i);
 		t = Lexer_next();
 		i++;
 	}

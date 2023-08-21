@@ -182,6 +182,7 @@ static bool gotOperator(){
 		case '*':
 		case '/':
 		case '.':
+		case '!':
 			return true;
 		default:
 			return false;
@@ -210,6 +211,8 @@ static enum token_type operatorBaseType(char c){
 		return OR;
 	case '.':
 		return DOT;
+	case '!':
+		return NOT;
 	}
 }
 
