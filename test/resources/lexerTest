@@ -1,0 +1,12 @@
+class Car extends Vehicle {
+  String[] model;
+  
+  Car(long price, String model){
+    super(price*0.toString());
+    this.model = model
+  }
+
+  void printModel(){
+    Libc.stdio.printf(model);
+  }
+}

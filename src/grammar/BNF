@@ -1,0 +1,22 @@
+<CLS_DEF>	: ["abstract"] "class" ID ["extends" ID] <CLS_BODY> ;
+
+<CLS_BODY>	: "{" [<DEF> [SEP <DEF>]*] "}" ;
+			
+<DEF>		: <VAR_DEF>
+			| <MTHD_DEF>
+			;
+
+<VAR_DEF>	: <TYPE> <VAR> ["," <VAR>]* SEP ;
+
+<TYPE>		: [K_local | K_ref] ID ;
+
+<VAR>		: <SIMPLE>
+			| <ASSIGN>
+			;
+
+<SIMPLE>	: ID ;
+<ASSIGN>	: ID "=" (<FUNC_CALL> | <CONSTRUCTOR>) ;
+
+<MTHD_DEF>	: <TYPE> ID "(" [<ARG> ["," <ARG>]* ] ")" <MTHD_BODY>
+
+<MTHD_BODY> : 

@@ -13,16 +13,16 @@ A new language that transpiles to C and has OOP features at its disposal
 - Objects can be of 2 types:
 	1. Local: Allocated on the stack and thus faster allocation
 		- Prefix initialization with the keyword `local`
-		- It is the `default` type.
 		```java
-		//	Both are local variables
 		local Vehicle vehicle1 = new Vehicle(10);
-		Vehicle vehicle2 = new Vehicle(20)
 		```
 	2. Referencing: Allocated on heap and thus slower allocation
 		- Prefix initialization with the keyword `ref`
+		- It is the `default` type.
 		```java
+		//	Both are reference variables
 		ref Vehicle vehicle = new Vehicle(10);
+		Vehicle vehicle2 = new Vehicle(20)
 		```
 - Both types of objects can be converted into one another
 - Local variable can be assigned a local/ref variable of same time only
