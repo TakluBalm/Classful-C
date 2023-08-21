@@ -16,7 +16,7 @@ A new language that transpiles to C and has OOP features at its disposal
 		```java
 		local Vehicle vehicle1 = new Vehicle(10);
 		```
-	2. Referencing: Allocated on heap and thus slower allocation
+	2. Referencing: Allocated on heap and thus slower allocation but allows for dynamic polymorphism
 		- Prefix initialization with the keyword `ref`
 		- It is the `default` type.
 		```java
